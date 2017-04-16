@@ -5,23 +5,25 @@ var ClozeCard = function(text, cloze) {
   this.cloze = cloze;
 
   this.partial = function() {
+
     var partial = [];
     var word = text.split(" ");
-    // console.log(word);
+
     for (var i=2; i < word.length; i++) {
       partial.push(word[i]);
-      var partialText = "..." + partial.join(" ");
-      
+      var partialText = "... " + partial.join(" ");
+      var partialCloze = word[0] + " " + word[1];
     }
-    console.log(partialText);
+
+    if (this.cloze !== partialCloze) {
+      console.log("Error - Incorrect Cloze Format");
+    }
+    else {
+      console.log(partialText);
+    }
+
   };
 
 };
 
-var firstPresidentCloze = new ClozeCard("George Washington was the first president of the United States.", "George Washington");
-
-
-
-console.log(firstPresidentCloze.fulltext);
-console.log(firstPresidentCloze.cloze);
-firstPresidentCloze.partial();
+module.exports = ClozeCard;
