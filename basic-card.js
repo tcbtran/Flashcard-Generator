@@ -15,6 +15,8 @@ BasicCard.prototype.getCard = function() {
   console.log("Back: " + this.back);
 };
 
+// since you're exporting the BasicCard constructor, it would be a good idea to encapsulate this inquirer logic
+// inside of a function so that it doesn't get immediately run whenever this file is required in anywhere else.
 inquirer.prompt([
 
   {
@@ -36,7 +38,9 @@ inquirer.prompt([
 
   function writeLog() {
 
-    var basicTxt = "Front: " + BasicCard.front + "\nBack: " + BasicCard.back;
+    // you wanna be sure that you're using the correct variable names. In this case you want
+    // the instance of the BasicCard you've created, not the BasicCard constructor itself
+    var basicTxt = "Front: " + newCard.front + "\nBack: " + newCard.back;
     fs.appendFile("log.txt", basicTxt, function(error, data) {
       if (error) {
         console.log(error);

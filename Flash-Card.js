@@ -4,6 +4,7 @@ var BasicCard = require('./basic-card.js');
 // Requiring our ClozeCard constructor
 var ClozeCard = require('./cloze-card.js');
 
+// you're not actually using the inquirer or fs packages in this file so there's no need to require them
 // Loading inquirer node package
 var inquirer = require('inquirer');
 
