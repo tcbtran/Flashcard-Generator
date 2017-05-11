@@ -6,6 +6,11 @@ var ClozeCard = function(text, cloze) {
 
   this.partial = function() {
 
+    // so you can simplify this logic by using some methods built in to javascript strings
+    // if ( text.includes(cloze) ) {
+    //   this.partial = text.replace(cloze, '...')
+    // }
+
     var partial = [];
     var word = text.split(" ");
 
